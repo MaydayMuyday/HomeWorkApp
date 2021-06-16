@@ -34,15 +34,17 @@ public class HomeWorkApp {
         value = 95;
         if (value <= 0)
         {
-            System.out.println(" red");
+            System.out.println(" red ");
 
         }
         if (value <= 100) {
-            System.out.println(" yellow");
+            System.out.println(" yellow ");
+
+
 
 
         } else {
-            System.out.println(" green");
+            System.out.println(" green ");
         }
     }
 
@@ -54,6 +56,7 @@ public class HomeWorkApp {
         } else {
             System.out.println("a < b");
         }
+
 
 
     }
