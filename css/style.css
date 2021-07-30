@@ -1,0 +1,13 @@
+.root{
+-fx-font-size:15;
+-fx-background-image: url("/image/1.jpg");
+}
+.button {
+-fx-background-color: #BDB76B;
+}
+
+.button:hover{
+-fx-background-color: #B8860B;
+-fx-font-weight: bold;
+
+}
