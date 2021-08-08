@@ -110,8 +110,8 @@ public class Controller implements Initializable {
                             break;
 
                         }
-//                        textArea.appendText(str + "\n");
-                        textArea.clear();
+                      textArea.appendText(str + "\n");
+                      
                     }
 
 
