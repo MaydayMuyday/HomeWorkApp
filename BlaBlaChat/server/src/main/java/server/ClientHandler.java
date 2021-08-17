@@ -28,8 +28,9 @@ public class ClientHandler {
                 try {
 
                     // цикл аутентификации
+                     socket.setSoTimeout(12);
+
                     while (true) {
-                        socket.setSoTimeout(120000);
 
                         String str;
                         str = in.readUTF();
@@ -101,10 +102,14 @@ public class ClientHandler {
                     e.printStackTrace();
                 } finally {
                     server.unsubscribe(this);
+
                     try {
+                        sendMsg("/end");
                         socket.close();
-                    } catch (SocketTimeoutException e) {
                         System.out.println("Socket timed out!");
+                    } catch (SocketTimeoutException e) {
+
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
