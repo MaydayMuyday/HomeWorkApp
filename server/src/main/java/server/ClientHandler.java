@@ -1,5 +1,7 @@
 package server;
 
+import com.sun.security.ntlm.Client;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -28,12 +30,14 @@ public class ClientHandler {
                 try {
 
                     // цикл аутентификации
-                     socket.setSoTimeout(12);
+
 
                     while (true) {
 
                         String str;
                         str = in.readUTF();
+
+                        socket.setSoTimeout(12000);
 
                         if (str.equals("/end")) {
                             sendMsg("/end");
@@ -97,19 +101,25 @@ public class ClientHandler {
                             server.broadcastMsg(this, str);
                         }
                     }
+
                     // SocketTimeoutException
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    System.out.println("Hello World");
+//                    e.printStackTrace();
                 } finally {
                     server.unsubscribe(this);
+
                     try {
+
                         sendMsg("/end");
                         socket.close();
-                    } catch (SocketTimeoutException e) {
+
 
                         System.out.println("Socket timed out!");
+
                     } catch (IOException e) {
-                        e.printStackTrace();
+
+                       e.printStackTrace();
                     }
                 }
 
@@ -117,6 +127,7 @@ public class ClientHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("end"); //контрольная точка
     }
     public void sendMsg(String msg) {
         try {
