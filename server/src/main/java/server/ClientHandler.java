@@ -100,6 +100,8 @@ public class ClientHandler {
                         } else {
                             server.broadcastMsg(this, str);
                         }
+//                        if (str.equals("/change"));
+
                     }
 
                     // SocketTimeoutException
@@ -119,7 +121,7 @@ public class ClientHandler {
 
                     } catch (IOException e) {
 
-                       e.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
 
@@ -129,6 +131,7 @@ public class ClientHandler {
         }
         System.out.println("end"); //контрольная точка
     }
+
     public void sendMsg(String msg) {
         try {
             out.writeUTF(msg);
