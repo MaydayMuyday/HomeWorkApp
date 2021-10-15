@@ -149,7 +149,7 @@ public class Controller implements Initializable {
             }
         });
     }
-//
+
     public void clientListClick(MouseEvent mouseEvent) {
         String receiver = clientList.getSelectionModel().getSelectedItem();
         textField.setText(String.format("/w %s ", receiver));
